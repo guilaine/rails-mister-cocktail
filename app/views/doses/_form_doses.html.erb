@@ -1,0 +1,17 @@
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+ <% if @dose.errors.any? %>
+   <div id="error_explanation">
+     <ul>
+     <% @dose.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+<h2>Doses for <%= @cocktail.name %></h2>
+<%= f.input :description %>
+<%= f.association :ingredient %>
+<%= f.button :submit %>
+ <%= link_to "Back", cocktails_path, {class: "btn btn-primary"} %>
+<% end %>
+

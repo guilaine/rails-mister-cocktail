@@ -1,0 +1,17 @@
+<%= simple_form_for(@cocktail) do |f| %>
+ <% if @cocktail.errors.any? %>
+   <div id="error_explanation">
+     <ul>
+     <% @cocktail.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+
+<%= f.input :name %>
+
+
+ <%= f.button :submit %>
+ <%= link_to "Back", cocktails_path, {class: "btn btn-primary"} %>
+<% end %>
