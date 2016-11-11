@@ -4,7 +4,7 @@
   <h4>― F. Scott Fitzgerald</h4> -->
 </div>
 
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-8">
       <% @cocktails.each do |cocktail| %>
@@ -20,13 +20,59 @@
               <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
           <% end %></li>
         </ul>
-      <% end %>
-      <%= link_to new_cocktail_path(@cocktail) do %>
-        <button type="button" class="btn btn-primary">Create</button>
-      <% end %>
-    </div>
-  </div>
-</div>
+        <% end %> -->
+
+      <div class="wrapper text-center">
+        <h2>Your favorites cocktails</h2>
+        <%= link_to new_cocktail_path(@cocktail) do %>
+        <button type="button" class="btn btn-primary">Create yours!</button>
+        <% end %>
+      </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <h4>Autumn Wind</h4>
+                <%= image_tag "autumn_wind.png", {class: "picture"} %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <h4>Shandy Khan</h4>
+                <%= image_tag "shandy_khan.png", {class: "picture"} %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <h4>Nutty Ocho Rios</h4>
+                <%= image_tag "nutty_ocho_rios.png", {class: "picture"} %>
+              </div>
+            </div>
+
+
+          <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <h4>Italian Bird</h4>
+                <%= image_tag "italian_bird.png", {class: "picture"} %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <h4>Long Zest</h4>
+                <%= image_tag "long_zest.png", {class: "picture"} %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <h4>Vdka 6100 Martini</h4>
+                <%= image_tag "vdka_6100_martini.png", {class: "picture"} %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
 
 
