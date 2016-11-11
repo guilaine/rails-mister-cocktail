@@ -2,14 +2,14 @@
   <div class="row text-center">
     <div class="col-xs-12 col-sm-6 cocktail_show">
       <h2><%= @cocktail.name %></h2>
-      <% if cocktail[:photo] %>
+      <% if @cocktail[:photo] %>
       <%= cl_image_tag @cocktail.photo, height: 350, width: 350, crop: :fill , class: "cocktail-photo"%>
       <% end %>
     </div>
     <div class="col-xs-12 col-sm-6 ingredient_show">
 
       <h3>Ingredients</h3>
-      <% if cocktail[:photo] %>
+      <% if @cocktail[:photo] %>
       <div class="card-notes" style="background-image: url('<%= cl_image_path "https://openclipart.org/image/2400px/svg_to_png/181867/note-papier2.png", height: 250, width: 150, crop: :fill %>')">
         <% end %>
         <% @cocktail.doses.each do |dose| %>
