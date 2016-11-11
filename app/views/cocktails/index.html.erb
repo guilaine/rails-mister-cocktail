@@ -14,22 +14,24 @@
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-      <div class="col-xs-12 col-sm-4">
-           <ul class='card-description list-inline text-center'>
-            <li><h4><%= cocktail.name %></h4></li>
-            <li><%= link_to edit_cocktail_path(cocktail) do %>
-                <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
-            <% end %></li>
-            <li><%= link_to cocktail_path(cocktail),method: :delete,
-                data: { confirm: "Are you sure?" } do %>
-                <i class="fa fa-trash fa-1x" aria-hidden="true"></i>
-            <% end %></li>
-          </ul>
+    <div class="col-xs-12 col-sm-4">
+     <ul class='card-description list-inline text-center'>
+      <li><h4><%= cocktail.name %></h4></li>
+      <li><%= link_to edit_cocktail_path(cocktail) do %>
+        <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
+        <% end %></li>
+        <li><%= link_to cocktail_path(cocktail),method: :delete,
+          data: { confirm: "Are you sure?" } do %>
+          <i class="fa fa-trash fa-1x" aria-hidden="true"></i>
+          <% end %></li>
+        </ul>
+        <% if cocktail[:photo] %>
         <div class="card"
-          style="background-image: url('<%= cl_image_path cocktail.photo, height: 250, width: 250, crop: :fill %>')">
-          <%= link_to "", cocktail_path(cocktail), {class: "card-link"} %>
-        </div>
+        style="background-image: url('<%= cl_image_path cocktail.photo, height: 250, width: 250, crop: :fill %>')">
+        <% end %>
+        <%= link_to "", cocktail_path(cocktail), {class: "card-link"} %>
       </div>
+    </div>
     <% end %>
   </div>
 </div>

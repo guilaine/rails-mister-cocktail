@@ -2,34 +2,38 @@
   <div class="row text-center">
     <div class="col-xs-12 col-sm-6 cocktail_show">
       <h2><%= @cocktail.name %></h2>
+      <% if cocktail[:photo] %>
       <%= cl_image_tag @cocktail.photo, height: 350, width: 350, crop: :fill , class: "cocktail-photo"%>
+      <% end %>
     </div>
     <div class="col-xs-12 col-sm-6 ingredient_show">
 
-        <h3>Ingredients</h3>
-        <div class="card-notes" style="background-image: url('<%= cl_image_path "https://openclipart.org/image/2400px/svg_to_png/181867/note-papier2.png", height: 250, width: 150, crop: :fill %>')">
-          <% @cocktail.doses.each do |dose| %>
-            <ul class='list-inline'>
-                <li><p><%= dose.description %> of <%= dose.ingredient.name %></p></li>
-              <li><%= link_to edit_cocktail_dose_path(@cocktail,dose) do %>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-              <% end %></li>
+      <h3>Ingredients</h3>
+      <% if cocktail[:photo] %>
+      <div class="card-notes" style="background-image: url('<%= cl_image_path "https://openclipart.org/image/2400px/svg_to_png/181867/note-papier2.png", height: 250, width: 150, crop: :fill %>')">
+        <% end %>
+        <% @cocktail.doses.each do |dose| %>
+        <ul class='list-inline'>
+          <li><p><%= dose.description %> of <%= dose.ingredient.name %></p></li>
+          <li><%= link_to edit_cocktail_dose_path(@cocktail,dose) do %>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <% end %></li>
 
-              <li><%= link_to dose_path(dose),method: :delete,
-                  data: { confirm: "Are you sure?" } do %>
-                <i class="fa fa-trash" aria-hidden="true"></i>
+            <li><%= link_to dose_path(dose),method: :delete,
+              data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %></li>
             </ul>
+            <% end %>
+          </div>
+          <br>
+          <%= link_to new_cocktail_dose_path(@cocktail) do %>
+          <button type="button" class="btn btn-warning">New dose</button>
+          <% end %>
+
+          <%= link_to cocktails_path do %>
+          <button type="button" class="btn btn-primary">Back</button>
           <% end %>
         </div>
-        <br>
-        <%= link_to new_cocktail_dose_path(@cocktail) do %>
-          <button type="button" class="btn btn-warning">New dose</button>
-        <% end %>
-
-        <%= link_to cocktails_path do %>
-          <button type="button" class="btn btn-primary">Back</button>
-        <% end %>
+      </div>
     </div>
-  </div>
-</div>
