@@ -1,14 +1,27 @@
 .card {
-  h4{
-    text-align: center;
-    margin-top: 40px;
+  height: 250px;
+  width: 250px;
+  background-repeat: none;
+  border-radius: 10px;
+  color: white;
+  position: relative;
+  margin-left: 50px;
+  margin-top: -18px;
+  &:hover{
+  opacity: 0.85;
   }
 }
 
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
 
-.picture {
-  width: 250px;
-  height: 250px;
-  border-radius: 10px;
-  margin-left: 55px;
+.card-description {
+  padding-top: 20px;
+}
+.list-inline > li {
+  padding: 2px;
 }

@@ -13,3 +13,26 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import "cocktails";
+@import "doses";
+
+.cocktail_show {
+  padding-left: 150px;
+}
+
+.ingredient_show {
+  padding-right: 150px;
+}
+
+.card-notes {
+  background-size: 100%;
+  background-position: 100% 0%;
+  height: 300px;
+  opacity: 0.8;
+  padding-top: 105px;
+  box-shadow: 3px 3px #828262;
+}
+
+.ingredient_show ul {
+  margin-top: -10px;
+}

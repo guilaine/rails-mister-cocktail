@@ -4,75 +4,36 @@
   <h4>― F. Scott Fitzgerald</h4> -->
 </div>
 
-<!-- <div class="container">
+<div class="wrapper text-center">
+  <h2>Your favorites cocktails</h2>
+  <%= link_to new_cocktail_path(@cocktail) do %>
+  <button type="button" class="btn btn-primary">Create yours!</button>
+  <% end %>
+</div>
+
+<div class="container">
   <div class="row">
-    <div class="col-sm-8">
-      <% @cocktails.each do |cocktail| %>
-        <ul class='list-inline'>
-          <li><h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2></li>
-
-          <li><%= link_to edit_cocktail_path(cocktail) do %>
-              <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
-          <% end %></li>
-
-          <li><%= link_to cocktail_path(cocktail),method: :delete,
-              data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-          <% end %></li>
-        </ul>
-        <% end %> -->
-
-      <div class="wrapper text-center">
-        <h2>Your favorites cocktails</h2>
-        <%= link_to new_cocktail_path(@cocktail) do %>
-        <button type="button" class="btn btn-primary">Create yours!</button>
-        <% end %>
-      </div>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <h4>Autumn Wind</h4>
-                <%= image_tag "autumn_wind.png", {class: "picture"} %>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <h4>Shandy Khan</h4>
-                <%= image_tag "shandy_khan.png", {class: "picture"} %>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <h4>Nutty Ocho Rios</h4>
-                <%= image_tag "nutty_ocho_rios.png", {class: "picture"} %>
-              </div>
-            </div>
-
-
-          <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <h4>Italian Bird</h4>
-                <%= image_tag "italian_bird.png", {class: "picture"} %>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <h4>Long Zest</h4>
-                <%= image_tag "long_zest.png", {class: "picture"} %>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <h4>Vdka 6100 Martini</h4>
-                <%= image_tag "vdka_6100_martini.png", {class: "picture"} %>
-              </div>
-            </div>
-          </div>
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+           <ul class='card-description list-inline text-center'>
+            <li><h4><%= cocktail.name %></h4></li>
+            <li><%= link_to edit_cocktail_path(cocktail) do %>
+                <i class="fa fa-pencil fa-1x" aria-hidden="true"></i>
+            <% end %></li>
+            <li><%= link_to cocktail_path(cocktail),method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-trash fa-1x" aria-hidden="true"></i>
+            <% end %></li>
+          </ul>
+        <div class="card"
+          style="background-image: url('<%= cl_image_path cocktail.photo, height: 250, width: 250, crop: :fill %>')">
+          <%= link_to "", cocktail_path(cocktail), {class: "card-link"} %>
         </div>
-
       </div>
+    <% end %>
+  </div>
+</div>
+
 
 
 
